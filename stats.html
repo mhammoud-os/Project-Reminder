@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistics</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Optional: Your CSS file -->
 </head>
 <body>
     <h1>Daily Focus Stats</h1>
     
-    <div>
-        <canvas id="focusChart" width="400" height="200"></canvas>
+    <div id="stats">
+        <p id="totalDays">Total Days: 0</p>
+        <p id="totalDaysWorked">Total Days Worked: 0</p>
+        <p id="todayStatus">Today's Status: Not Available</p>
     </div>
 
-    <h2>Missed Days & Explanations</h2>
-    <ul id="missedDaysList"></ul>
+    <h2>Reasons for Missed Days</h2>
+    <ul id="reasonsForMissedDays"></ul>
 
     <button onclick="window.location.href='index.html'">Back to Home</button>
 
-    <script src="stats.js"></script>
+    <script src="stats.js"></script> <!-- Ensure your JavaScript file is loaded -->
 </body>
 </html>

@@ -19,33 +19,36 @@ if (fs.existsSync(savedImagePath)) {
 document.getElementById('yesButton').addEventListener('click', () => {
     stats.push({ worked: true, date: todayDate });
     document.getElementById('logSection').style.display = 'block';
-    disableButtons();
 });
 
 document.getElementById('noButton').addEventListener('click', () => {
     stats.push({ worked: false, date: todayDate });
     document.getElementById('whyNoSection').style.display = 'block';
-    disableButtons();
 });
 
 document.getElementById('logYes').addEventListener('click', () => {
     saveStat(true);
+    disableButtons();
 });
 
 document.getElementById('logNo').addEventListener('click', () => {
     saveStat(false);
+    disableButtons();
 });
 
 document.getElementById('submitReason').addEventListener('click', () => {
     const reason = document.getElementById('reason').value;
     stats[stats.length - 1].reason = reason;
     saveStat(false);
+    disableButtons();
 });
 
-// Disable buttons to prevent changing mind
 function disableButtons() {
     document.getElementById('yesButton').disabled = true;
     document.getElementById('noButton').disabled = true;
+    document.getElementById('logNo').disabled = true;
+    document.getElementById('logYes').disabled = true;
+    document.getElementById('submitReason').disabled = true;
 }
 
 // Save stats to the database
@@ -59,6 +62,57 @@ function saveStat(logbookStatus) {
         reason,
         logbookStatus
     });
+
+    // Show success message
+    showMessage('Added to the database!');
+
+    // Clear everything on the screen except the stats button
+    clearScreen();
+}
+
+// Show message on the screen
+function showMessage(message) {
+    const messageDiv = document.createElement('div');
+    messageDiv.textContent = message;
+    messageDiv.style.position = 'fixed';
+    messageDiv.style.top = '20px';
+    messageDiv.style.right = '20px';
+    messageDiv.style.backgroundColor = 'green';
+    messageDiv.style.padding = '10px';
+    messageDiv.style.borderRadius = '5px';
+    messageDiv.style.zIndex = '1000';
+    document.body.appendChild(messageDiv);
+
+    // Remove message after 3 seconds
+    setTimeout(() => {
+        messageDiv.remove();
+    }, 3000);
+}
+
+// Clear all relevant sections
+function clearScreen() {
+    document.getElementById('yesButton').style.display = 'none';
+    document.getElementById('noButton').style.display = 'none';
+    document.getElementById('whyNoSection').style.display = 'none';
+    document.getElementById('logSection').style.display = 'none';
+    document.getElementById('whyNoSection').style.display = 'none';
+    document.getElementById('reason').value = '';
+    stats = []; // Reset stats
+    addExitButton(); // Add exit button
+}
+
+// Add exit button to close the app
+function addExitButton() {
+    const exitButton = document.createElement('button');
+    exitButton.textContent = 'Exit';
+    exitButton.style.background= 'red';
+    exitButton.style.marginTop = '20px';
+    exitButton.addEventListener('click', () => {
+        window.close(); // Close the application
+    });
+    // Append the exit button below the other buttons
+    const mainContent = document.querySelector('.main-content');
+    mainContent.appendChild(exitButton);
 }
 
 // Handle image upload and save

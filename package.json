@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "webPreferences":{
+    "preload": "preload.js"
+  },
   "devDependencies": {
     "electron": "^32.1.2"
   },
