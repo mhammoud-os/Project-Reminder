@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Reminder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>DID YOU WORK ON YOUR FOCUS TODAY?</h1>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+    
+    <div id="logSection" style="display:none;">
+        <h3>Did you log it in your logbook?</h3>
+        <button id="logYes">Yes</button>
+        <button id="logNo">No</button>
+    </div>
+
+    <div id="whyNoSection" style="display:none;">
+        <h3>Why didn't you work on it?</h3>
+        <textarea id="reason" placeholder="Explain why..."></textarea>
+        <button id="submitReason">Submit</button>
+    </div>
+
+    <div>
+        <h3>Upload your document:</h3>
+        <input type="file" id="uploadDoc">
+        <img id="imagePreview" src="#" alt="Your document" style="display:none;">
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
