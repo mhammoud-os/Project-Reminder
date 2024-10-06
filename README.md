@@ -2,6 +2,9 @@
 
 A simple Electron application that helps users track their focus work, log their progress, and upload relevant documents. An app like this is meant to be set as a startup application so users can always remember to work on the things they need to do.
 
+### [Download APP](https://drive.google.com/drive/folders/1E09ReL6NGdDe8BU4Vk4Gkd1V88BHdm_X)
+### [View how to add a start up app in windows](https://support.lenovo.com/us/en/solutions/ht513728-how-to-run-apps-automatically-at-startup-in-windows-10)
+
 ## Features
 
 - Log focus work status (Yes/No)
@@ -21,4 +24,3 @@ A simple Electron application that helps users track their focus work, log their
 ![image](https://github.com/user-attachments/assets/89d46a4f-a948-4457-9bd7-363b4463237c) 
 
 ![image](https://github.com/user-attachments/assets/1742de13-7cd1-4c8d-8a37-67e8b0d72e3e)
-
